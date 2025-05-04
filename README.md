@@ -24,9 +24,9 @@ Cdsapi_pipeline_and_data_preprocessing.ipynb
 This file downloads and merges data from NDBC and ERA5 sources for selected locations and timeframes to create our final dataset. The required packages are pandas, numpy, cdsapi, xarray, and matplotlib.
 NDBC data: 
 download and clean NDBC data for selected stations and years
-ERA 5 Data
+ERA 5 Data:
 Download wave and meteorological data (e.g., swh, sst, mwp, ppld) from CDS using API 
-Merge datasets into a unified, timestamped DataFrame
+Merge datasets into a unified, timestamped DataFrame:
 Handle missing values and resample to uniform intervals
 Save to CSV for model input
 
@@ -53,15 +53,22 @@ The final model is plotted and evaluated using predictions vs. actual values acr
 
 Model_testing.ipynb
 This file contains a CNN+LSTM model and an XGBoost model for predicting 24 future hours based on the last 24 hours. The required packages are numpy, pandas, matplotlib, sklearn, tensorflow, and xgboost.
-Data and Setup
+Data and Setup:
 Using the same process as CNN+LSTM, creates X and y sequences of past values and future values to feed into a model.
 Functions: 
 Includes some functions to improve readability later in the code.
 inv_transform: Inverse Transforms data after it has been scaled for interpretable results
-Get_error_df: Given predictions and actual values, creates a dataframe of error metrics by forecast hour
+get_error_df: Given predictions and actual values, creates a dataframe of error metrics by forecast hour
 XGBoost: 
 Contains XGBoost model training and evaluation.
 CNN+LSTM: 
 Contains CNN+LSTM model training and evaluation.
 Comparison Plots: 
 Plots error metrics from each model to compare results over forecast horizon. Also contains code to show example forecasts.
+
+VMD__LSTM_V2.ipynb
+This code is a work in progress, as we were not able to complete a rolling forecast to test the prediction accuracy of the VMD model due to data leakage explained in the report. However, we have included it as useful information for any future work. The required packages are pandas, numpy, math, matplotlib, vmdpy, tensorflow, and sklearn.
+VMD component decomposition
+Forecast with separate train and test data
+Incomplete Rolling Forecast
+Refer to this study for an explanation of the algorithm: https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2024.1382248/full 
